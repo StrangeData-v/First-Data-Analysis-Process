@@ -3,7 +3,7 @@
 Hi there. This is my first attempt to make a data analysis process! The whole process is quite simple: spidering data , analysizing data ,and finally get conclusion. Tools used in this project is Python and Excel. In order to master python as soon as possible, so we will use python more in this project. Well, because this is my first project and at the same time I am the newer of python, there will be a lot of bugs and flaws in the process . So, this project is just a attemptation involved less reference meaning. But truth is , which I believe , my second project will be better that could provide a good insight for readers. I hope that day comes soon!And welcome to commit me your
 precious views~
 
-STEPS:
+## STEPS:
 1. Find data structrue of 51job.com, then dig it via  python spider.
 2. Clean up the data.
 3. Use python to find the hide information from disposed data.
@@ -13,7 +13,6 @@ STEPS:
 
 
 # FILES:
-
 
 HERE WE START !
 
@@ -27,9 +26,6 @@ After you run the script ,you will get a csv typed files. Files contains any num
 > __title__ , __href__ , __salary__ , __posted date__ , __qualification__ , __company type__ , __company scale__ , __company categroy__
 
 Like this:
-
-
-
 
 
 
