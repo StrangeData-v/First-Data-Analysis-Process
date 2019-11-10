@@ -179,6 +179,7 @@ And other graphs are in this repository named like 'E.png'.
 
   Then what about skills? Make clear that which important skill is more required for different levels is also necessary. So use the same method, we get this table:
 ![alt text](https://github.com/StrangeData-v/First-Data-Analysis-Process/blob/master/Tools.png)
+
   This table shows the priority in every salary levels. We can conclude that with the level raisings, __Python__ and __sql__ is more and more important for workers. Office app such as Excel is always a necessary tools for data analyser. That is so interesting! So if you want to be a data analyser , Excel is the fundmental tools in what you should master. 
   The industry trends is also a good insight for newer. Maybe we can use sample to simulate the actual envrioment. Here is the salary level distribution and company size distribution of recuriting company.
 ![alt text](https://github.com/StrangeData-v/First-Data-Analysis-Process/blob/master/salary_destribute.png)
@@ -187,7 +188,7 @@ And other graphs are in this repository named like 'E.png'.
   From salary level graph, we can get a strange conclusion that the share of primary data analyser whose salary level is maybe the G or F is very low, which is obviously unnormal because it is highly skewing from __Pareto‘s principle__ also named __二八定律__ . This is so weird! If it is a truth, then the new comer of data analysis industriy like me would cry so sorrowed.. We should have a deep research for this strang conclusion.
 
 # Step3: Conclusion
-After this data analysis project, we can conclude 3 important thins:
+After this data analysis project, we can conclude 3 important things:
 
 > 1. Python is so useful and easy to use.
 > 2. Data anlysers' skill varied from different salary levels. Python is more important for middle level analyser.
