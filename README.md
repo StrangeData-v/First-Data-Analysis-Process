@@ -30,7 +30,7 @@ Like this:
 
 But as you can see, the intial data contains lots of unpleasent none field. So next we will clean up our initial data. The method is using __csv__ package of Python to drop up the None field and uncompleted field such as that in picture in yellow color. Below is the spcific code.
 
-'''
+```
 with open('filter_all.csv','r') as fr:
     with open('filter_all_1.csv','w') as fw:
         csvr = csv.reader(fr)
@@ -41,7 +41,7 @@ with open('filter_all.csv','r') as fr:
             m = next(csvr)
             if len(m[5]) > 50:
                 csvw.writerow(m)
-'''
+```
 
 Fortunataly our initial data is not very unsuitable for our next analysis, so one clean procerdure is enough. So we will get the cleared data table:
 ![alt text](https://github.com/StrangeData-v/First-Data-Analysis-Process/blob/master/Processed.png)
