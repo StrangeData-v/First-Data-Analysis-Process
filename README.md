@@ -126,24 +126,110 @@ When we come to this part, things has been succesful half. In this part we shoul
 ![alt text](https://github.com/StrangeData-v/First-Data-Analysis-Process/blob/master/PA%2BRA.png)
 
 Pointed analysis and random analysis. As the name shown, pointed analysis required a aim before we start a project. An aim is important that can guide us into a right way so that we can improve our efficiency. Almost 90% of data analysis projects followed pointed principle. But random analysis is also usefull in some condition such as creative analysis. In our process, it is better to set a perpose such as this:
+![alt text](https://github.com/StrangeData-v/First-Data-Analysis-Process/blob/master/aims.png)
 
+For solve this question , maybe we should create a wordcloud first. It is so easy to use Python to make a wordcloud. All we need is __jieba__ package and __wordcloud__ package. Here is the code:
+```
+import jieba
+import matplotlib.pyplot as plt
+import wordcloud
 
+file = open('C:\\Users\\13115\\epy\\qualifiction.txt')
+text = ' '.join(jieba.cut(file.read()))
+font_path = 'C:\\Users\\13115\\epy\\huaweikaiti.ttf'
+wc = wordcloud.WordCloud(font_path,width = 1920,height = 1080,background_color = 'white').generate(text)
+plt.imshow(wc)
+wordcloud.WordCloud.to_file(wc,'C:\\Users\\13115\\epy\\fenci.jpg')
+```
+And show the result:
+![alt text](https://github.com/StrangeData-v/First-Data-Analysis-Process/blob/master/wordcloud.jpg)
 
+In order to cover our 3 questions, we should meaure the associated index of salary and qualification. But before do that, we have to sanderize the salasy. Here are one method to do that in our analysis code [data_analysis_process.py](https://github.com/StrangeData-v/First-Data-Analysis-Process/blob/master/data_analysis_process.py).
 
+```
+def getsallev(s):
 
+    ''' s is a sting of salary description. This function is used to standerize
 
+    the salary info into level descreiption'''
 
+    if '-' in s:
 
+        p = s.index('-')
 
+        adjust_dict = {'万/月':12,'千/月':12/10,'万/年':1,'元/天':365/10000}
 
+        r = adjust_dict[s[-3:]]
 
+        ss = ( float(s[:p]) + float(s[p+1:-3]) ) / 2 * r
 
+    else:
 
+        ss = float(s[:-3]) * 365/10000
 
+    if ss <= 8:
 
+        level = 'G'
 
+    elif ss > 8 and ss <= 12:
 
+        level = 'F'
 
+    elif ss >12 and ss <= 16:
+
+        level = 'E'
+
+    elif ss > 16 and ss <= 22:
+
+        level = 'D'
+
+    elif ss > 22 and ss <= 30:
+
+        level = 'C'
+
+    elif ss > 30 and ss <= 40:
+
+        level = 'B'
+
+    elif ss > 40 and ss <= 60:
+
+        level = 'A'
+
+    else:
+
+        level = 'S'
+
+    return level
+```
+
+Simple and useful. Next is finding relationship between salary and qualification. In this part, we import a Python package named __jieba__ that is used for cutting the sentence string into single words , which seems like __nature language process__. After that we can create lots of matching between and salary level and single words cut from qualification. We can use a dictionary to contains the matchings. Then counts the number of every matchings from dictionary. In this step, how to count words quickly is a interesting question. There are some algorithm to solve it. But for our provety of knowledge of algorithm, we used the , mabe the most , stupid mathod. Yes we count directly:
+```
+fin_dict = {}
+
+# A sily filtering method which will occuping lots of rescource.  
+
+# This function runing spends 7 min!
+
+for i in list0:
+
+    c = list0.count(i)
+
+    fin_dict[i] = c
+```
+Well, as the length of list0 is 171716, so this tiny code cost ablout 7 minutes...
+
+Then we can input the result. Because we have divided the salary into 8 levels , for each levels , we made a words association graph.
+For example, in E level , which means workers well get 12000 yuan to 160000 yuan every year, we can get the top 25 words in qualification highly accosiated with E level.
+![alt text](https://github.com/StrangeData-v/First-Data-Analysis-Process/blob/master/E.png)
+And other graphs are in this repository named like 'E.png'. 
+
+Then what about skills? Make clear that which important skill is more required for different levels is also necessary. So use the same method, we get this table:
+![alt text](https://github.com/StrangeData-v/First-Data-Analysis-Process/blob/master/Tools.png)
+This table shows the priority in every salary levels. We can conclude that with the level raisings, __Python__ and __sql__ is more and more important for workers. Office app such as Excel is always a necessary tools for data analyser. That is so interesting! So if you want to be a data analyser , Excel is the fundmental tools in what you should master. 
+The industry trends is also a good insight for newer. Maybe we can use sample to simulate the actual envrioment. Here is the salary level distribution and company size distribution of recuriting company.
+![alt text](https://github.com/StrangeData-v/First-Data-Analysis-Process/blob/master/salary_destribute.png)
+![alt text](https://github.com/StrangeData-v/First-Data-Analysis-Process/blob/master/company_type_distribution.jpg)
+From salary level graph, we can get a strange conclusion that the share of primary data analyser whose salary level is maybe the G or F is very low, which is obviously unnormal because it is highly skewing from __Pareto‘s principle__ also named __二八定律__ . This is so weird! If it is a truth, then the new comer of data analysis industriy like me would cry so sorrowed.. 
 
 
 
