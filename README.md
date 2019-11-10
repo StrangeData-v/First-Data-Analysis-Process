@@ -19,7 +19,7 @@
 
 
 ## Chinese Version:
-I have upload report to wechat official account:
+I have uploaded this report to Wechat official account:
 1. [利用Python爬取51job上的招聘信息](https://mp.weixin.qq.com/s/BxTS3DFU24Avw-q3N3krVg)
 2. [数据分析师岗位需要掌握什么技能点？分析结果告诉你！](https://mp.weixin.qq.com/s/zuRD99gjzZ3GrqZxzBDaeQ)
 
