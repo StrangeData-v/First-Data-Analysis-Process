@@ -23,7 +23,75 @@ Before coiding a python spider, we should visit the web page first.In this proje
 
 In the [dig_51job.py](https://github.com/StrangeData-v/First-Data-Analysis-Process/blob/master/dig_51job.py) , we have definded some functions to finish every steps. The function __getiplist__ is used to get a proxy ip list from [www.xicidaili.com](https://www.xicidaili.com/) which is a web site provided free proxy ip address. But there are a lots of temparery ip whose valid time span is just 1 minutes so that can't finish our digging task. So our function set a filter model to filter this useless site. Other function is used for getting data from 51jobs. The sepcific digging process contains two important parts which we have mentioned just now. It is getting url list and getting each jobs demand of url list. 
 
-After anlyse the site data structrue, we can get ready to write a script using Python. Python is a perfect programing language for those who are newer for IT world. It's sytanx is maybe the same as the orders we using at the usually life. So this language is so suitable for new comer. And after a months studing, I get started tp operate this project.And also, as my first spider script, 'little spider' maybe seems very terrible and uncorrect complex. But fortunately, we finally successed! Ok return our process, next is runing the script files named **__dig_51job.py__**. (**ps. The code is so uncomsise that 
+After anlyse the site data structrue, we can get ready to write a script using Python. Python is a perfect programing language for those who are newer for IT world. It's sytanx is maybe the same as the orders we using at the usually life. So this language is so suitable for new comer. And after a months studing, I get started tp operate this project.And also, as my first spider script, 'little spider' maybe seems very terrible and uncorrect complex. But fortunately, we finally successed! Ok return our process, next is runing the script files named **__dig_51job.py__**.
+
+```
+final_dict = {}
+
+for i in range(1,50):
+
+    try:
+
+        s = str(i)
+
+        url = 'https://search.51job.com/list/020000,000000,0000,00,9,05%252C06%252C07,%25E6%2595%25B0%25E6%258D%25AE%25E5%2588%2586%25E6%259E%2590,2,' + s + '.html?lang=c&postchannel=0000&workyear=01%2C02&cotype=99&degreefrom=04&jobterm=01&companysize=99&ord_field=0&dibiaoid=0&line=&welfare='
+
+        final_dict[i] = getlist(url,[])
+
+    except (urllib.error.URLError,urllib.error.HTTPError):
+
+        continue
+
+
+
+# ---> save the data
+
+l = len(final_dict)
+
+
+
+csvFile = open('filter_all.csv', 'w')
+
+writer = csv.writer(csvFile)
+
+writer.writerow(('title', 'href', 'company','salary','date','qualification','comtype','comsize','comtrade'))
+
+try:
+
+    for i in final_dict.keys():
+
+        for r in range(1,len(final_dict[i]) + 1):
+
+            try:
+
+                title = str(final_dict[i][r][0])
+
+                href = str(final_dict[i][r][1])
+
+                company = str(final_dict[i][r][2])
+
+                salary = str(final_dict[i][r][3])
+
+                date = str(final_dict[i][r][4])
+
+                qualification = str(final_dict[i][r][5])
+
+                comtype = str(final_dict[i][r][6])
+
+                comsize = str(final_dict[i][r][7])
+
+                comtrade = str(final_dict[i][r][8])
+
+                writer.writerow((title,href,company,salary,date,qualification,comtype,comsize,comtrade))
+
+            except (UnicodeEncodeError,IndexError,KeyError):
+
+                continue
+
+finally:
+
+    csvFile.close()
+```
 
 After you run the script ,you will get a csv typed files. Files contains any numbers of items you want, and each items involved __8__   fields:
 
@@ -55,14 +123,9 @@ When we prepared all the things, then it is time for analysis!
 # Step2: Analysis Process + Visual presentation
 When we come to this part, things has been succesful half. In this part we should analyse the data we get from 51jobs and find fome hidden secret reguler. So at first we should make clear that **__what is our perpose__**. Actually the data analysis process could be divided into two class.  
 
+![alt text](https://github.com/StrangeData-v/First-Data-Analysis-Process/blob/master/PA%2BRA.png)
 
-
-
-
-
-
-
-
+Pointed analysis and random analysis. As the name shown, pointed analysis required a aim before we start a project. An aim is important that can guide us into a right way so that we can improve our efficiency. Almost 90% of data analysis projects followed pointed principle. But random analysis is also usefull in some condition such as creative analysis. In our process, it is better to set a perpose such as this:
 
 
 
