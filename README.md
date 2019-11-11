@@ -34,7 +34,7 @@ HERE WE START !
 
    In the [dig_51job.py](https://github.com/StrangeData-v/First-Data-Analysis-Process/blob/master/dig_51job.py) , we have definded some functions to finish every steps. The function __getiplist__ is used to get a proxy ip list from [www.xicidaili.com](https://www.xicidaili.com/) which is a web site provided free proxy ip address. But there are a lots of temparery ip whose valid time span is just 1 minutes so that can't finish our digging task. So our function set a filter model to filter this useless site. Other function is used for getting data from 51jobs. The sepcific digging process contains two important parts which we have mentioned just now. They are getting url list and getting each jobs demand from url list. 
 
-  After anlysing the site data structrue, we can get ready to write a script using Python. Python is a perfect programing language for those who are newer for IT world. Its sytanx maybe the same as the orders we using at the usually life. So this language is so suitable for new comer. And after a months studing, I get started tp operate this project.And also, as my first spider script, 'little spider' maybe seems very terrible and uncorrect complex. But fortunately, we finally successed! Ok return our process, next is runing the script files named **__dig_51job.py__**.
+  After anlysing the site data structrue, we can get ready to write a script using Python. Python is a perfect programing language for those who are newer for IT world. Its sytanx maybe the same as the orders we using at the usually life. So this language is so suitable for a newer. And after a month's studing, I get started tp operate this project. And also, as my first spider script, 'little spider' maybe seems very terrible and uncorrect complex. But fortunately, we finally successed! Ok return our process, next is runing the script files named **__dig_51job.py__**.
 
 ```
 final_dict = {}
@@ -106,7 +106,7 @@ with open('filter_all.csv','r') as fr:
   When we prepared all the things, then it is time for analysis!
 
 # Step2: Analysis Process + Visual presentation
-  When we come to this part, things has been succesful half. In this part we should analyse the data we get from 51jobs and find fome hidden secret reguler. So at first we should make clear that **__what is our perpose__**. Actually the data analysis process could be divided into two class.  
+  When we come to this part, things has been succesful for half. In this part we should analyse the data we get from 51jobs and find fome hidden secret reguler. So at first we should make clear that **__what is our perpose__**. Actually the data analysis process could be divided into two class.  
 
 ![alt text](https://github.com/StrangeData-v/First-Data-Analysis-Process/blob/master/PA%2BRA.png)
 
@@ -191,7 +191,7 @@ And other graphs are in this repository named like 'E.png'.
 After this data analysis project, we can conclude 3 important things:
 
 > 1. Python is so useful and easy to use.
-> 2. Data anlysers' skill varied from different salary levels. Python is more important for middle level analyser.
+> 2. Data anlysers' skill varied from different salary levels. Python is more important for middle or higher level analyser.
 > 3. The market shows a low demand for Primary data analyser.
 
-So , that all. For give you a better report in the future, I will pay more time and patience on study. Thanks guys for reading.
+That all. For giving you a better report in the future, I will pay more time and patience to study. Thanks guys for reading.
